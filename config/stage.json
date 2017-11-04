@@ -1,0 +1,10 @@
+{
+  "env": "stage",
+  "publicPath": "http://localhost:8080",
+  "host": "localhost",
+  "port": "8080",
+  "fetchConfig": {
+    "isMock": false,
+    "fetchUrl": ""
+  }
+}
