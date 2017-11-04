@@ -18,7 +18,7 @@ window.app.mainView = window.app.addView('.view-main', { domCache: true });
 
 const testDom = '<div class="page" data-page="my-page">123</div>';
 
-window.app.mainView.router.loadContent(testDom);
+// window.app.mainView.router.loadContent(testDom);
 
 if (location.hash === '') {
   window.app.mainView.router.load({
