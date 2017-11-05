@@ -1,9 +1,9 @@
 import Framework7 from 'frame7'; // eslint-disable-line
 
-module.exports = () => {
+module.exports = (reactComponent) => {
   const app = new Framework7({
     pushState: true,
-    // reactComponent: reactComponent || {},
+    reactComponent: reactComponent || {},
     preprocess: content => content,
     material: true,
   });
