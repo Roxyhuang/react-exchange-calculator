@@ -29,11 +29,3 @@ if (location.hash === '') {
   });
 }
 
-// if (location.hash === '') {
-//   window.app.mainView.router.load({
-//     url: '#index',
-//     animatePages: false,
-//     pushState: false,
-//   });
-// }
-

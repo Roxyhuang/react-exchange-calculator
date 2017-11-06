@@ -1,17 +1,18 @@
+/* eslint-disable */
+
 import 'frame7';
 
-module.exports = function (reactComponent) {
+module.exports = (reactComponent) => {
   const app = new Framework7({
     pushState: true,
     reactComponent: reactComponent || {},
-    preprocess: function(content, url, next) {
+    preprocess: (content) => {
       return content;
     },
-    onPageAfterAnimation: function (app, page) {
+    onPageAfterAnimation:(app, page) => {
       document.title = $$(page.container).find('.page-content').data('title');
     },
-    material:true
+    material: true,
   });
-  console.log(app.reactComponent);
   return app;
-}
+};
