@@ -20,7 +20,6 @@ let entryConfig = {
   vendors: [
     'react',
     'react-dom',
-    'framework7-react'
   ]
 };
 

@@ -1,12 +1,17 @@
-import Framework7 from 'frame7'; // eslint-disable-line
+import 'frame7';
 
-module.exports = (reactComponent) => {
+module.exports = function (reactComponent) {
   const app = new Framework7({
     pushState: true,
     reactComponent: reactComponent || {},
-    preprocess: content => content,
-    material: true,
+    preprocess: function(content, url, next) {
+      return content;
+    },
+    onPageAfterAnimation: function (app, page) {
+      document.title = $$(page.container).find('.page-content').data('title');
+    },
+    material:true
   });
-  console.log(app);
+  console.log(app.reactComponent);
   return app;
-};
+}

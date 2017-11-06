@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 
 class Index extends React.Component {
@@ -14,9 +13,7 @@ class Index extends React.Component {
 
   render() {
     return (
-      <div className="page" data-page="index">
-        list
-      </div>
+      <div className="page" data-page="list">list</div> //eslint-disable-line
     );
   }
 }

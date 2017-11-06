@@ -3,3 +3,4 @@ npm-debug.log
 build/*
 src/backend/*
 public/assets/flexible.js
+src/utils/*
