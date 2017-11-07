@@ -1,22 +1,10 @@
 import 'assets/css/global.less';
 import createApp from '../../utils/createApp';
-import Index from '../../components/container/index/Index';
-import List from '../../components/container/list/List';
+import router from '../../routes/route';
 
 window.$$ = Dom7; //eslint-disable-line
 
 window.globalParams = {};
-
-const router = {
-  'p/index.html': {
-    mod: Index,
-    title: '首页',
-  },
-  'p/list.html': {
-    mod: List,
-    title: '列表',
-  },
-};
 
 window.app = createApp(router);
 
