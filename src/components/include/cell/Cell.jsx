@@ -3,7 +3,7 @@ import menu from 'assets/img/icon/menu.png';
 import more from 'assets/img/icon/more.png';
 import s from 'components/include/navbar/navbar.less';
 
-const Navbar = (props) => {
+const Cell = (props) => {
   return (
     <div className="navbar">
       <div className="navbar-inner">
@@ -23,4 +23,4 @@ const Navbar = (props) => {
   );
 };
 
-export default Navbar;
+export default Cell;
