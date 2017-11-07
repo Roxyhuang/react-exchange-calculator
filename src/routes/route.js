@@ -1,5 +1,5 @@
-import Index from '../components/container/index/Index';
-import List from '../components/container/list/List';
+import Index from '../components/containers/index/Index';
+import List from '../components/containers/list/List';
 
 const router = {
   'p/index.html': {

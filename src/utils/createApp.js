@@ -9,7 +9,7 @@ module.exports = (reactComponent) => {
       return content;
     },
     // onPageAfterAnimation:(app, page) => {
-      // document.title = $$(page.container).find('.page-content').data('title');
+      // document.title = $$(page.containers).find('.page-content').data('title');
     // },
     material: true,
   });

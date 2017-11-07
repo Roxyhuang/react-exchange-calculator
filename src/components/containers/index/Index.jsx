@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react';
-import Navbar from '../../inclues/Navbar';
+import Layout from '../../include/layout/Layout';
+import Navbar from '../../include/navbar/Navbar';
 
 class Index extends React.Component {
   constructor(props) {
@@ -15,9 +16,9 @@ class Index extends React.Component {
 
   render() {
     return (
-      <div className="page" data-page="index">
+      <Layout>
         <Navbar title="汇率计算器"/>
-      </div>
+      </Layout>
     );
   }
 }
