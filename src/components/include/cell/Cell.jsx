@@ -8,7 +8,7 @@ const Cell = (props) => {
       <img src={info.img} alt="flags" className={s.flags} />
       <div className={s.tag}>{info.unit}</div>
       <div className={s.info}>
-        <input className={s.number} placeholder={info.base} />
+        <input type="number" className={s.number} placeholder={info.base} maxLength="11" />
         <div className={s.unit}>{info.text}</div>
       </div>
     </div>
