@@ -36,7 +36,15 @@ module.exports = () => ({
 
     require('postcss-flexbugs-fixes')(),
 
-    px2rem({remUnit: 75}),
+    px2rem({
+      rootValue: 75,
+      unitPrecision: 5,
+      propList: ['*', '!border*'],
+      selectorBlackList: [],
+      replace: true,
+      mediaQuery: false,
+      minPixelValue: 12
+    }),
 
     postcssCssnext({
       features: {

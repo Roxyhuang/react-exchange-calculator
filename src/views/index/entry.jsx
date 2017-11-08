@@ -13,7 +13,7 @@ window.app.mainView = window.app.addView('.view-main');
 if (location.hash === '') {
   window.app.mainView.router.load({
     url: 'p/index.html',
-    animatePages: false,
+    animatePages: true,
   });
 }
 
