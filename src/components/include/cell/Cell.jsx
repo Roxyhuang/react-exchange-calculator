@@ -1,16 +1,15 @@
 import React from 'react';
-import cny from 'assets/img/flags/cny.png';
 import s from './cell.less';
 
-
-const Cell = () => {
+const Cell = (props) => {
+  const { info } = { ...props };
   return (
     <div className={s.container}>
-      <img src={cny} alt="flags" className={s.flags} />
-      <div>CNY</div>
-      <div>
-        <div>7.03</div>
-        <div>人民币 ¥</div>
+      <img src={info.img} alt="flags" className={s.flags} />
+      <div className={s.tag}>{info.unit}</div>
+      <div className={s.info}>
+        <input className={s.number} placeholder={info.base} />
+        <div className={s.unit}>{info.text}</div>
       </div>
     </div>
   );

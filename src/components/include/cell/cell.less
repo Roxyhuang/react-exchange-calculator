@@ -1,11 +1,42 @@
 .container {
   display: flex;
   flex-direction: row;
-  background: red;
+  background: rgba(235, 235, 235, 0.5);
   padding: 40px 20px;
 }
 
 .flags {
   width: 128px;
   height: 128px;
+}
+
+.tag {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-size: 48px;
+  margin-left: 28px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  width: 600px;
+  //align-self: flex-end;
+}
+
+.number {
+  min-width: 120px;
+  font-size: 36px;
+  background: transparent;
+  border: none;
+  text-align: right;
+}
+
+.unit {
+  font-size: 28px;
 }
