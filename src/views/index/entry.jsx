@@ -1,4 +1,5 @@
 import 'assets/css/global.less';
+import 'assets/css/mod_css/normal.less';
 import createApp from '../../utils/createApp';
 import router from '../../routes/route';
 

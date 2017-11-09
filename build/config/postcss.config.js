@@ -1,8 +1,8 @@
   /* eslint-disable global-require */
 
 const pkg = require('../../package.json');
-const px2rem = require('postcss-px2rem');
-const postcssCssnext = require('postcss-cssnext');
+const px2rem = require('postcss-pxtorem');
+// const postcssCssnext = require('postcss-cssnext');
 
 module.exports = () => ({
 
@@ -28,7 +28,7 @@ module.exports = () => ({
 
     require('pleeease-filters')(),
 
-    require('pixrem')(),
+    // require('pixrem')(),
 
     require('postcss-selector-matches')(),
 
@@ -46,20 +46,20 @@ module.exports = () => ({
       minPixelValue: 12
     }),
 
-    postcssCssnext({
-      features: {
-        customProperties: {
-          variables: {
-            mainColor: "red",
-            altColor: "blue",
-          }
-        }
-      }
-    }),
-
-    // require('autoprefixer')({
-    //   browsers: pkg.browserslist,
-    //   flexbox: 'no-2009',
+    // postcssCssnext({
+    //   features: {
+    //     customProperties: {
+    //       variables: {
+    //         mainColor: "red",
+    //         altColor: "blue",
+    //       }
+    //     }
+    //   }
     // }),
+
+    require('autoprefixer')({
+      browsers: pkg.browserslist,
+      flexbox: 'no-2009',
+    }),
   ],
 });

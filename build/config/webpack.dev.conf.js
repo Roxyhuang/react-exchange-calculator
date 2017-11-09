@@ -105,7 +105,7 @@ webpackConfig.plugins.push(
 webpackConfig.module.rules = webpackConfig.module.rules.concat(
   {
     test: /\.css|less$/,
-    exclude: path.resolve('node_modules'),
+    exclude: [path.resolve('node_modules'), path.resolve('src/assets/css/mod_css')],
     use: [
       {
         loader: "style-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]"
@@ -114,21 +114,22 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat(
         loader: "css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]"
       },
       {
-        loader: "less-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]"
-      },
-      {
         loader: 'postcss-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]',
         options: {
+          sourceMap: true,
           config: {
             path: 'build/config/postcss.config.js'
           }
         }
-      }
+      },
+      {
+        loader: "less-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]"
+      },
       ],
   },
   {
     test: /\.css|less$/,
-    include: path.resolve('node_modules'),
+    include: [path.resolve('node_modules'), path.resolve('src/assets/css/mod_css')  ],
     use: [
       {
         loader: "style-loader?sourceMap=true"
@@ -137,15 +138,16 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat(
         loader: "css-loader?sourceMap=true"
       },
       {
-        loader: "less-loader?sourceMap=true"
-      },
-      {
         loader: 'postcss-loader?sourceMap=true',
         options: {
+          sourceMap: true,
           config: {
             path: 'build/config/postcss.config.js'
           }
         }
+      },
+      {
+        loader: "less-loader?sourceMap=true"
       }
     ],
   },
