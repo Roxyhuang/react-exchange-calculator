@@ -18,8 +18,7 @@ let webpackProdOutput;
 
 let entryConfig = {
   vendors: [
-    'react',
-    'react-dom',
+    'whatwg-fetch'
   ]
 };
 
