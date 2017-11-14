@@ -11,8 +11,8 @@
 If you want use in Windows, Please set
 
 ```bash
-git config --global core.autocrlf true
-git config --global core.safecrlf false
+git config --global core.autocrlf input
+git config --global core.safecrlf true 
 ```
 
 If show error of libpng16.16.dylib with anything php related,Please install libpng

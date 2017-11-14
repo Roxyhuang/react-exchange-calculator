@@ -72,6 +72,10 @@ webpackConfig.plugins.push(
   new webpack.IgnorePlugin(/un~$/),
   new webpack.optimize.UglifyJsPlugin({
     sourceMap: true,
+    compress: {
+      warnings: true,
+      drop_console: true
+    }
   }),
   new StyleLintPlugin({
     context: "src",

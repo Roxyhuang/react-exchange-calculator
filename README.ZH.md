@@ -11,8 +11,8 @@
 如果使用Windows平台，设置空格转换:
 
 ```bash
-git config --global core.autocrlf true
-git config --global core.safecrlf false
+git config --global core.autocrlf input
+git config --global core.safecrlf true
 ```
 
 如果Mac下报错libpng16.16.dylib with anything php related，请执行
