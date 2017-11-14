@@ -6,5 +6,7 @@
   "fetchConfig": {
       "isMock": true,
       "fetchUrl": ""
-  }
+  },
+  "debug": false,
+  "analyzerBundle": false
 }

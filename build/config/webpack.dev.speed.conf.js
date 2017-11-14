@@ -3,8 +3,6 @@ import chalk from 'chalk';
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
-import DashboardPlugin from 'webpack-dashboard/plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import OpenBrowserPlugin from 'open-browser-webpack-plugin';
 
@@ -76,28 +74,14 @@ if (Object.entries(APP_ENTRY_POINT).length > 1) {
 webpackConfig.output = Object.assign(webpackConfig.output, webpackDevOutput);
 
 webpackConfig.plugins.push(
-  new DashboardPlugin({port: 3300}),
-  new webpack.LoaderOptionsPlugin({
-    debug: true
-  }),
-
   new webpack.HotModuleReplacementPlugin(),
-  new BrowserSyncPlugin({
-    host: 'localhost',
-    port: 3001,
-    proxy: `http://localhost:3000/`,
-    open: false,
-    reloadDelay: 2500,
-  }, {
-    reload: false,
-  }),
   new StyleLintPlugin({
-    context: "src",
-    configFile: '.stylelintrc.js',
-    files: '**/*.less',
-    failOnError: false,
-    quiet: false,
-    syntax: 'less'
+      context: "src",
+      configFile: '.stylelintrc.js',
+      files: '**/*.less',
+      failOnError: false,
+      quiet: false,
+      syntax: 'less'
     }
   ),
 );
@@ -116,7 +100,6 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat(
       {
         loader: 'postcss-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]',
         options: {
-          sourceMap: true,
           config: {
             path: 'build/config/postcss.config.js'
           }
@@ -125,29 +108,28 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat(
       {
         loader: "less-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]"
       },
-      ],
+    ],
   },
   {
     test: /\.css|less$/,
     include: [path.resolve('node_modules'), path.resolve('src/assets/css/mod_css')  ],
     use: [
       {
-        loader: "style-loader?sourceMap=true"
+        loader: "style-loader"
       },
       {
-        loader: "css-loader?sourceMap=true"
+        loader: "css-loader"
       },
       {
-        loader: 'postcss-loader?sourceMap=true',
+        loader: 'postcss-loader',
         options: {
-          sourceMap: true,
           config: {
             path: 'build/config/postcss.config.js'
           }
         }
       },
       {
-        loader: "less-loader?sourceMap=true"
+        loader: "less-loader"
       }
     ],
   },
@@ -197,7 +179,7 @@ if (Object.entries(APP_ENTRY_POINT).length > 1) {
 }
 
 if (ANALYZER_BUNDLE) {
-const BundleAnalyzerPlugin  = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  const BundleAnalyzerPlugin  = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
   webpackConfig.plugins.push(
     new BundleAnalyzerPlugin({
       analyzerMode: 'server',

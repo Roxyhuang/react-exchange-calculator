@@ -3,12 +3,17 @@ import http from 'http';
 // import https from 'https';
 import webpack from 'webpack';
 import config from 'config';
-import webpackConfig from '../config/webpack.dev.conf';
-// import checkVersion from '../script/check-versions';
+import os from "os";
 
 const APP_ENTRY_POINT = config.get('appEntry');
+let webpackConfig;
 
-// checkVersion();
+if (os.platform() !== 'win32') {
+  webpackConfig = require('../config/webpack.dev.conf').default;
+  require('../script/check-versions')();
+} else {
+  webpackConfig = require('../config/webpack.dev.speed.conf').default;
+}
 
 const app = express();
 const compiler = webpack(webpackConfig);
