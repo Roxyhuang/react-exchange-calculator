@@ -5,6 +5,7 @@ import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import config from 'config';
 import fs from 'fs';
+import HappyPack from 'happypack';
 
 process.traceDeprecation = false;
 
@@ -33,10 +34,10 @@ const COMMON_LOADERS = [
   {
     test: /\.(js|jsx)?$/,
     exclude: /node_modules/,
-    loader: 'babel-loader',
-    options: {
-      cacheDirectory: true,
-    },
+    loaders: [ 'happypack/loader?id=jsx' ],
+    // options: {
+    //   cacheDirectory: true,
+    // },
   },
   {
     test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
@@ -88,6 +89,7 @@ const COMMON_LOADERS = [
   },
   {
     test: /\.js|jsx$/,
+    exclude: /node_modules/,
     enforce: "pre",
     loader: "eslint-loader"
   }
@@ -107,6 +109,12 @@ const webpackConfig = {
     },
   },
   plugins: [
+    new HappyPack({
+      id: 'jsx',
+      threads: 8,
+      loaders: [ 'babel-loader' ]
+    }),
+
     new ProgressBarPlugin(),
     new webpack.IgnorePlugin(/vertx/),
     new CaseSensitivePathsPlugin(),

@@ -3,10 +3,11 @@ import chalk from 'chalk';
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
-import DashboardPlugin from 'webpack-dashboard/plugin';
+// import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+// import DashboardPlugin from 'webpack-dashboard/plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import OpenBrowserPlugin from 'open-browser-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import webpackConfig from './webpack.base.conf';
 
@@ -75,21 +76,21 @@ if (Object.entries(APP_ENTRY_POINT).length > 1) {
 webpackConfig.output = Object.assign(webpackConfig.output, webpackDevOutput);
 
 webpackConfig.plugins.push(
-  new DashboardPlugin({port: 3300}),
-  new webpack.LoaderOptionsPlugin({
-    debug: true
-  }),
+  // new DashboardPlugin({port: 3300}),
+  // new webpack.LoaderOptionsPlugin({
+  //   debug: true
+  // }),
 
   new webpack.HotModuleReplacementPlugin(),
-  new BrowserSyncPlugin({
-    host: 'localhost',
-    port: 3001,
-    proxy: `http://localhost:3000/`,
-    open: false,
-    reloadDelay: 2500,
-  }, {
-    reload: false,
-  }),
+  // new BrowserSyncPlugin({
+  //   host: 'localhost',
+  //   port: 3001,
+  //   proxy: `http://localhost:3000/`,
+  //   open: false,
+  //   reloadDelay: 2500,
+  // }, {
+  //   reload: false,
+  // }),
   new StyleLintPlugin({
     context: "src",
     configFile: '.stylelintrc.js',
@@ -99,6 +100,18 @@ webpackConfig.plugins.push(
     syntax: 'less'
     }
   ),
+  // new BundleAnalyzerPlugin({
+  //   analyzerMode: 'server',
+  //   analyzerHost: '127.0.0.1',
+  //   analyzerPort: 8888,
+  //   reportFilename: 'report.html',
+  //   defaultSizes: 'parsed',
+  //   openAnalyzer: true,
+  //   generateStatsFile: false,
+  //   statsFilename: 'stats.json',
+  //   statsOptions: null,
+  //   logLevel: 'info'
+  // })
 );
 
 webpackConfig.module.rules = webpackConfig.module.rules.concat(
@@ -131,22 +144,22 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat(
     include: [path.resolve('node_modules'), path.resolve('src/assets/css/mod_css')  ],
     use: [
       {
-        loader: "style-loader?sourceMap=true"
+        loader: "style-loader"
       },
       {
-        loader: "css-loader?sourceMap=true"
+        loader: "css-loader"
       },
       {
-        loader: 'postcss-loader?sourceMap=true',
+        loader: 'postcss-loader',
         options: {
-          sourceMap: true,
+          // sourceMap: true,
           config: {
             path: 'build/config/postcss.config.js'
           }
         }
       },
       {
-        loader: "less-loader?sourceMap=true"
+        loader: "less-loader"
       }
     ],
   },

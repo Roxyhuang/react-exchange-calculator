@@ -4,11 +4,11 @@ import http from 'http';
 import webpack from 'webpack';
 import config from 'config';
 import webpackConfig from '../config/webpack.dev.conf';
-import checkVersion from '../script/check-versions';
+// import checkVersion from '../script/check-versions';
 
 const APP_ENTRY_POINT = config.get('appEntry');
 
-checkVersion();
+// checkVersion();
 
 const app = express();
 const compiler = webpack(webpackConfig);
