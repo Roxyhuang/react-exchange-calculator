@@ -35,9 +35,6 @@ const COMMON_LOADERS = [
     test: /\.(js|jsx)?$/,
     exclude: /node_modules/,
     loaders: [ 'happypack/loader?id=jsx' ],
-    // options: {
-    //   cacheDirectory: true,
-    // },
   },
   {
     test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
@@ -112,7 +109,11 @@ const webpackConfig = {
     new HappyPack({
       id: 'jsx',
       threads: 8,
-      loaders: [ 'babel-loader' ]
+      loaders: [ 'babel-loader?cacheDirectory' ],
+      cache: true,
+      cacheContext: {
+        env: process.env.NODE_ENV
+      },
     }),
 
     new ProgressBarPlugin(),
