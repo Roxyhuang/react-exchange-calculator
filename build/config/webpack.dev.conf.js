@@ -7,6 +7,7 @@ import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import DashboardPlugin from 'webpack-dashboard/plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import OpenBrowserPlugin from 'open-browser-webpack-plugin';
+import AutoDllPlugin from 'autodll-webpack-plugin';
 
 import webpackConfig from './webpack.base.conf';
 
@@ -24,9 +25,6 @@ const ANALYZER_BUNDLE = config.get('analyzerBundle');
 let webpackDevOutput;
 
 let entryConfig = {
-  vendors: [
-    'whatwg-fetch'
-  ]
 };
 
 // Config for Javascript file
@@ -100,6 +98,14 @@ webpackConfig.plugins.push(
     syntax: 'less'
     }
   ),
+  new AutoDllPlugin({
+    filename: '[name].dll.js',
+    entry: {
+      vendor: [
+        'whatwg-fetch'
+      ]
+    }
+  })
 );
 
 webpackConfig.module.rules = webpackConfig.module.rules.concat(

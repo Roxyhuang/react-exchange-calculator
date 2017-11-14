@@ -5,6 +5,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import OpenBrowserPlugin from 'open-browser-webpack-plugin';
+import AutoDllPlugin from 'autodll-webpack-plugin';
 
 import webpackConfig from './webpack.base.conf';
 
@@ -22,9 +23,6 @@ const ANALYZER_BUNDLE = config.get('analyzerBundle');
 let webpackDevOutput;
 
 let entryConfig = {
-  vendors: [
-    'whatwg-fetch'
-  ]
 };
 
 // Config for Javascript file
@@ -50,6 +48,14 @@ if (Object.entries(APP_ENTRY_POINT).length > 1) {
   });
 } else {
   console.log(chalk.red('You must define a entry'));
+  new AutoDllPlugin({
+    filename: '[name].dll.js',
+    entry: {
+      vendor: [
+        'whatwg-fetch'
+      ]
+    }
+  })
 }
 
 //Config for output
@@ -84,6 +90,14 @@ webpackConfig.plugins.push(
       syntax: 'less'
     }
   ),
+  new AutoDllPlugin({
+    filename: '[name].dll.js',
+    entry: {
+      vendor: [
+        'whatwg-fetch'
+      ]
+    }
+  })
 );
 
 webpackConfig.module.rules = webpackConfig.module.rules.concat(

@@ -110,10 +110,6 @@ const webpackConfig = {
       id: 'jsx',
       threads: 8,
       loaders: [ 'babel-loader?cacheDirectory' ],
-      cache: true,
-      cacheContext: {
-        env: process.env.NODE_ENV
-      },
     }),
 
     new ProgressBarPlugin(),
