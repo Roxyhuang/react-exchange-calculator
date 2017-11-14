@@ -99,14 +99,17 @@ webpackConfig.plugins.push(
     }
   ),
   new AutoDllPlugin({
+    inject: true,
     filename: '[name].dll.js',
+    path: './assets/js',
     entry: {
       vendor: [
         'whatwg-fetch',
-        // 'eruda',
+        'eruda',
+        'immutable',
       ]
     }
-  })
+  }),
 );
 
 webpackConfig.module.rules = webpackConfig.module.rules.concat(

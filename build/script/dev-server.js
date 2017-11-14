@@ -9,8 +9,8 @@ const APP_ENTRY_POINT = config.get('appEntry');
 let webpackConfig;
 
 if (os.platform() !== 'win32') {
-  webpackConfig = require('../config/webpack.dev.conf').default;
   require('../script/check-versions')();
+  webpackConfig = require('../config/webpack.dev.conf').default;
 } else {
   webpackConfig = require('../config/webpack.dev.speed.conf').default;
 }

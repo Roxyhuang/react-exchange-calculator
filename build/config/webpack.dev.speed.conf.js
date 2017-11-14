@@ -48,14 +48,6 @@ if (Object.entries(APP_ENTRY_POINT).length > 1) {
   });
 } else {
   console.log(chalk.red('You must define a entry'));
-  new AutoDllPlugin({
-    filename: '[name].dll.js',
-    entry: {
-      vendor: [
-        'whatwg-fetch'
-      ]
-    }
-  })
 }
 
 //Config for output
@@ -91,14 +83,16 @@ webpackConfig.plugins.push(
     }
   ),
   new AutoDllPlugin({
+    inject: true,
     filename: '[name].dll.js',
+    path: './assets/js',
     entry: {
       vendor: [
         'whatwg-fetch',
-        // 'eruda',
+        'eruda',
       ]
     }
-  })
+  }),
 );
 
 webpackConfig.module.rules = webpackConfig.module.rules.concat(
