@@ -1,7 +1,13 @@
+import eruda from 'eruda';
 import 'assets/css/global.less';
 import 'assets/css/mod_css/normal.less';
 import createApp from '../../utils/createApp';
 import router from '../../routes/route';
+
+if (process.env.NODE_ENV === 'development' && process.env.DEBUG) {
+  // open debug mode
+  eruda.init();
+}
 
 window.$$ = Dom7; //eslint-disable-line
 

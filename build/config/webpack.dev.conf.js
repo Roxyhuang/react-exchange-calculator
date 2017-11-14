@@ -102,7 +102,8 @@ webpackConfig.plugins.push(
     filename: '[name].dll.js',
     entry: {
       vendor: [
-        'whatwg-fetch'
+        'whatwg-fetch',
+        // 'eruda',
       ]
     }
   })
