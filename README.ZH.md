@@ -112,7 +112,7 @@ npm run prod
 
 - react
 - react dom
-- react-frame7或frame7
+- frameWork7
 - webpack
 - babel
 
@@ -148,8 +148,3 @@ npm run prod
 import config from 'config';
 const test = config.get('test');
 ```
-
-### 仍存在问题
-
-- js模块分割方案暂未成熟
-- css模块分割方案暂未成熟

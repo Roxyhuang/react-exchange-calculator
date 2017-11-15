@@ -7,6 +7,6 @@
       "isMock": true,
       "fetchUrl": ""
   },
-  "debug": true,
+  "debug": false,
   "analyzerBundle": false
 }
