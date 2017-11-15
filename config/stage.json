@@ -6,5 +6,6 @@
   "fetchConfig": {
     "isMock": false,
     "fetchUrl": ""
-  }
+  },
+  "debug": true
 }

@@ -73,8 +73,8 @@ webpackConfig.plugins.push(
   new webpack.optimize.UglifyJsPlugin({
     sourceMap: true,
     compress: {
-      warnings: true,
-      drop_console: true
+      warnings: false,
+      drop_console: config.get('env') === 'production',
     }
   }),
   new StyleLintPlugin({
