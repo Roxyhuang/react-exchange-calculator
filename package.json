@@ -80,6 +80,7 @@
     "less": "^3.0.0-alpha.3",
     "less-loader": "^4.0.5",
     "mockjs": "^1.0.1-beta3",
+    "nodemon": "^1.12.1",
     "open-browser-webpack-plugin": "0.0.5",
     "postcss": "^6.0.13",
     "postcss-cssnext": "^3.0.2",
@@ -113,6 +114,6 @@
     "build": " cross-env NODE_ENV=release babel-node build/bin/commands.js build",
     "stage": " cross-env NODE_ENV=stage babel-node build/bin/commands.js stage",
     "prod": "cross-env NODE_ENV=production  babel-node build/bin/commands.js prod",
-    "mock": "babel-node mock/server.js"
+    "mock": "nodemon mock/server.js"
   }
 }

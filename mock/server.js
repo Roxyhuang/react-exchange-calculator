@@ -1,9 +1,9 @@
-import express from 'express';
-import Mock from 'mockjs';
-import chalk from 'chalk';
-import config from 'config';
+const express =  require('express');
+const Mock =  require('mockjs');
+const chalk = require('chalk');
+const config = require('config');
 
-import test from './data/test.json';
+const test = require('./data/test.json');
 
 const port = config.get('mockConfig').port || 8888;
 

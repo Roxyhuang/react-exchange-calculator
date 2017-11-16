@@ -7,7 +7,7 @@ import SaveAssetsJson from 'assets-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
-import ZipPlugin from 'zip-webpack-plugin';
+// import ZipPlugin from 'zip-webpack-plugin';
 
 import webpackConfig from './webpack.base.conf';
 
@@ -206,13 +206,13 @@ if (Object.entries(APP_ENTRY_POINT).length > 1) {
   console.log(chalk.red('You must define a entry'));
 }
 
-if (config.get('env') === 'production') {
-  webpackConfig.plugins.push(
-    new ZipPlugin({
-      filename: `${config.get('zipConfig').dirName}` || 'dist',
-    })
-  )
-}
+// if (config.get('env') === 'production') {
+//   webpackConfig.plugins.push(
+//     new ZipPlugin({
+//       filename: `${config.get('zipConfig').dirName}` || 'dist',
+//     })
+//   )
+// }
 
 export default webpackConfig;
 
