@@ -12,5 +12,8 @@
 //    "project2": "./src/containers/project2/Entry.jsx"
   },
 //  "server-index": "app/app.html"
-  "server-index": "app.html"
+  "server-index": "app.html",
+  "mockConfig": {
+    "port": 8888
+  }
 }

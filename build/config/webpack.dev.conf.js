@@ -106,7 +106,6 @@ webpackConfig.plugins.push(
       vendor: [
         'whatwg-fetch',
         'eruda',
-        'immutable',
       ]
     }
   }),
