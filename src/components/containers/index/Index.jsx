@@ -5,7 +5,7 @@ import hkd from 'assets/img/flags/hkd.png';
 import Layout from '../../include/layout/Layout';
 import Navbar from '../../include/navbar/Navbar';
 import Cell from '../../include/cell/Cell';
-import backend from '../../../backend/Backend';
+// import backend from '../../../backend/Backend';
 
 class Index extends React.Component {
   constructor(props) {
@@ -17,9 +17,9 @@ class Index extends React.Component {
 
   componentDidMount() {
     // TODO
-    backend.getInstance().getProductList({ method: 'POST' }).then((res) => {
-      console.log(res);
-    });
+    // backend.getInstance().getProductList({ method: 'POST' }).then((res) => {
+    //   console.log(res);
+    // });
   }
 
   render() {
