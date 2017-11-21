@@ -11,7 +11,7 @@ module.exports = (reactComponent) => {
     // onPageAfterAnimation:(app, page) => {
       // document.title = $$(page.containers).find('.page-content').data('title');
     // },
-    material: true,
+    material: false,
   });
   return app;
 };
