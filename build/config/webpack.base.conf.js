@@ -86,7 +86,7 @@ const COMMON_LOADERS = [
   },
   {
     test: /\.js|jsx$/,
-    exclude: /node_modules/,
+    exclude: ['node_modules',/\.json$/],
     enforce: "pre",
     loader: "eslint-loader"
   }
